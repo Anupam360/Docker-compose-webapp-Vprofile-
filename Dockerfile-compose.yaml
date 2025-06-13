@@ -3,21 +3,18 @@ version: "3.8"
 services:
   client:
     build:
-      context: ./client
+      context: ./Vprofile
     ports:
-      - "4200:4200"
-    container_name: client
+      - "8081:8080"
+    container_name: Vprofile
     depends_on:
-      - api
-      - webapi
+      - Webapp
 
   api:
     build:
-      context: ./nodeapi
+      context: ./Webapp
     ports:
-      - "5000:5000"
+      - "8082:8080"
     restart: always
-    container_name: api
+    container_name: Webapp-1
     depends_on:
-      - nginx
-      - emongo
